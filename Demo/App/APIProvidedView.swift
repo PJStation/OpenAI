@@ -92,6 +92,13 @@ struct APIProvidedView: View {
     }
     
     private static func makeClient(apiKey: String) -> OpenAIProtocol {
-        OpenAI(apiToken: apiKey)
+        let configuration = OpenAI.Configuration(
+            token: apiKey,
+            host: "api.siliconflow.cn",
+            port: 443,
+            scheme: "https",
+            basePath: "/v1"
+        )
+        return OpenAI(configuration: configuration)
     }
 }

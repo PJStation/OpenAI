@@ -264,7 +264,7 @@ public final class ChatStore: ObservableObject {
                 let existingMessages = conversations[conversationIndex].messages
                 // Function calls are also streamed, so we need to accumulate.
                 choice.delta.toolCalls?.forEach { toolCallDelta in
-                    let index = toolCallDelta.index
+                    let index = toolCallDelta.index ?? 0
                     
                     if let functionCallDelta = toolCallDelta.function {
                         if functionCalls[index] == nil {

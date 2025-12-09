@@ -15,11 +15,15 @@ import SwiftUI
 
 import ExyteChat
 
+extension Model {
+    static let Qwen_Qwen2_5_VL_72B_Instruct = "deepseek-ai/DeepSeek-R1"
+}
+
 struct DetailView: View {
     @State var inputText: String = ""
     @FocusState private var isFocused: Bool
     @State private var showsModelSelectionSheet = false
-    @State private var selectedChatModel: Model = .gpt4_o_mini
+    @State private var selectedChatModel: Model = .Qwen_Qwen2_5_VL_72B_Instruct
     @State private var streamEnabled = true
     var availableAssistants: [Assistant]
 
@@ -213,4 +217,3 @@ struct DetailView_Previews: PreviewProvider {
         )
     }
 }
-
